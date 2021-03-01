@@ -1,0 +1,51 @@
+.mensaje
+{
+    position: absolute;
+    z-index: 1080;
+    width: auto;
+    left: 1vh;
+    top: 10vh;
+    opacity: 1;
+}
+.annadir:hover
+{
+    width: 100%;
+    cursor: cell;
+}
+.retirar:hover
+{
+    cursor: s-resize;
+}
+
+.principal
+{
+    position: relative;
+    min-height: 100vh;
+}
+
+footer
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.huecoFooter
+{
+    height: 10vh;
+}
+
+a{
+    color: white;
+}
+/*
+--------TARJETAS PARA AULAS
+*/
+.cabeceraTarjeta{
+    border-radius: 5px;
+    background-color: rgb(56, 190, 63);
+}
+
+.cuerpoTarjeta{
+    background-color: rgb(253, 183, 77);
+}
