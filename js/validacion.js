@@ -1,7 +1,6 @@
 function validacion()
 {
-    // Hay muchas formas de elegir un nodo DOM; aquí obtenemos el formulario y, a continuación, el campo de entrada
-    // del correo electrónico, así como el elemento span en el que colocaremos el mensaje de error.
+    // Elige el formulario de inicio
     const form = document.getElementById('formularioInicio');
 
     const mail = document.getElementById('mail');

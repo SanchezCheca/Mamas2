@@ -9,7 +9,7 @@
         <p>
             Daniel Sánchez Checa
             <br>
-            <a href="https://github.com/SanchezCheca" target="blank">GitHub</a>
+            <a href="https://github.com/SanchezCheca" target="blank"><i class="fab fa-github"></i> GitHub</a>
         </p>
     </div>
 </footer>
