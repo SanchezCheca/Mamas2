@@ -47,7 +47,8 @@
                 <div class="col-12 d-flex justify-content-center py-2 mb-3">
                     <form id="formularioAula" name="crearAula" action="../Controladores/controladorPrincipal.php" method="POST">
                         <div class="form-inline d-flex justify-content-center">
-                            <input type="text" name="nombre" class="form-control" placeholder="Nombre del Aula" required>
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre del Aula" id="formNombre" required>
+                            <div id="nombreError"></div>
                             <input type="submit" class="btn btn-success" name="crearAula" value="Crear">
                         </div>
                     </form>

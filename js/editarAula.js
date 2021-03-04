@@ -3,6 +3,7 @@
  */
 
 function cargar() {
+    validar();
     var primerElemento = true;
 
     var tituloAlumnos = document.getElementById('tituloAlumnos');   //h4 en el que pone 'Anadir alumnos'
@@ -119,4 +120,50 @@ function cargar() {
     });
 
 
+}
+
+/**
+ * Validacion del nombre del aula
+ */
+function validar(){
+    //Constantes necesarias
+    const form = document.getElementById('formularioAula');
+    const nombre = document.getElementById('formNombre');
+    const nombreError = document.getElementById('nombreError');
+
+    form.addEventListener('submit', function (event) {
+        // si el campo de nombre es válido, dejamos que el formulario se envíe
+        if (!nombre.validity.valid) {
+            // Si no es así, mostramos un mensaje de error apropiado
+            errorNombre();
+            // Luego evitamos que se envíe el formulario cancelando el evento
+            event.preventDefault();
+        }        
+    });
+
+    nombre.addEventListener('blur', function (event) {
+        // Cada vez que el usuario escribe algo, verificamos si
+        // los campos del formulario son válidos.
+
+        if (nombre.validity.valid) {
+            nombreError.className = 'valid-feedback';
+            nombre.classList.remove('is-invalid');
+            nombre.classList.add('is-valid');
+            nombreError.textContent = 'Es correcto';
+        } else {
+            // Si todavía hay un error, muestra el error exacto
+            errorNombre();
+        }
+    });
+
+    function errorNombre() {
+        if (nombre.validity.valueMissing) {
+            // Si el campo está vacío
+            // muestra el mensaje de error siguiente.
+            nombreError.textContent = 'Debe introducir un nombre.';
+        } 
+           nombreError.className = 'invalid-feedback';
+           nombre.classList.remove('is-valid');
+           nombre.classList.add('is-invalid');
+    }
 }

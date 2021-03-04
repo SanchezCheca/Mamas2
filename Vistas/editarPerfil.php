@@ -29,9 +29,12 @@
         <link rel="stylesheet" href="../css/mdb.min.css">
         <link rel="stylesheet" href="../css/style.css">
 
+        <!--Validacion-->
+        <script src="../js/validacion.js"></script> 
+
         <title>Perfil - Mamas 2.0</title>
     </head>
-    <body>
+    <body onload="validacionPerfil()">
         <?php include '../Recursos/header.php'; ?>
 
         <?php
@@ -54,10 +57,11 @@
             <div class="row my-4">
                 <div class="col-md-3"></div>
                 <div class="col-12 col-md-6 border border-light">
-                    <form name="editarPerfil" action="../Controladores/controladorPrincipal.php" method="POST">
+                    <form name="editarPerfil" action="../Controladores/controladorPrincipal.php" method="POST" id="formularioPerfil">
                         <div class="row">
                             <div class="col-12 py-2 text-center mt-4">
-                                <input type="text" name="nombre" value="<?php echo $usuario->getNombre(); ?>" placeholder="Nombre">
+                                <input type="text" name="nombre" value="<?php echo $usuario->getNombre(); ?>" placeholder="Nombre" id="formNombre" required>
+                                <div id="nombreError"></div>
                             </div>
                             <div class="col-12 text-center py-2">
                                 <input type="email" name="correo" value="<?php echo $usuario->getCorreo(); ?>" placeholder="Correo electrónico">

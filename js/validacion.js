@@ -1,25 +1,20 @@
-function validacion()
-{
+/**
+ * Validacion para login
+ */
+function validacionInicio() {
     // Elige el formulario de inicio
     const form = document.getElementById('formularioInicio');
-
     const mail = document.getElementById('mail');
     const mailError = document.getElementById('mailError');
-    
 
-    
-     form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', function (event) {
         // si el campo de correo electrónico es válido, dejamos que el formulario se envíe
-
         if (!mail.validity.valid) {
             // Si no es así, mostramos un mensaje de error apropiado
             errorEmail();
             // Luego evitamos que se envíe el formulario cancelando el evento
             event.preventDefault();
         }
-        
-     
-        
     });
 
     mail.addEventListener('blur', function (event) {
@@ -27,18 +22,16 @@ function validacion()
         // los campos del formulario son válidos.
 
         if (mail.validity.valid) {
-          mailError.className = 'valid-feedback';
+            mailError.className = 'valid-feedback';
             mail.classList.remove('is-invalid');
             mail.classList.add('is-valid');
             mailError.textContent = 'Es correcto';
-           
         } else {
             // Si todavía hay un error, muestra el error exacto
             errorEmail();
         }
     });
 
-    
     function errorEmail() {
         if (mail.validity.valueMissing) {
             // Si el campo está vacío
@@ -52,96 +45,73 @@ function validacion()
         else if (mail.validity.tooShort) {
             // Si los datos son demasiado cortos
             // muestra el mensaje de error siguiente.
-            mailError.textContent = 'El correo electrónico debe tener al menos'  +  mail.minLength + 'caracteres; ha introducido' + mail.value.length ;
+            mailError.textContent = 'El correo electrónico debe tener al menos' + mail.minLength + 'caracteres; ha introducido' + mail.value.length;
         }
-           mailError.className = 'invalid-feedback';
-            mail.classList.remove('is-valid');
-            mail.classList.add('is-invalid');
-
-        
-      
+        mailError.className = 'invalid-feedback';
+        mail.classList.remove('is-valid');
+        mail.classList.add('is-invalid');
     }
-    
-    
 }
 
-
-function validacionRegistro()
-{
+/**
+ * Validacion para registro de cuentas
+ */
+function validacionRegistro() {
     const form = document.getElementById('registro');
-
     const mail = document.getElementById('mail');
     const mailError = document.getElementById('mailError');
-    
     const nombre = document.getElementById('nombre');
     const nombreError = document.getElementById('nombreError');
 
-    
-     form.addEventListener('submit', function (event) {
-        // si el campo de correo electrónico es válido, dejamos que el formulario se envíe
 
+    form.addEventListener('submit', function (event) {
+        // si el campo de correo electrónico es válido, dejamos que el formulario se envíe
         if (!mail.validity.valid) {
             // Si no es así, mostramos un mensaje de error apropiado
             errorEmail();
             // Luego evitamos que se envíe el formulario cancelando el evento
             event.preventDefault();
         }
-        
-     
-        
     });
-    
-      
-     form.addEventListener('submit', function (event) {
-        // si el campo de correo electrónico es válido, dejamos que el formulario se envíe
 
+    form.addEventListener('submit', function (event) {
+        // si el campo de correo electrónico es válido, dejamos que el formulario se envíe
         if (!nombre.validity.valid) {
             // Si no es así, mostramos un mensaje de error apropiado
             errorNombre();
             // Luego evitamos que se envíe el formulario cancelando el evento
             event.preventDefault();
         }
-        
-     
-        
     });
-    
-    
 
     mail.addEventListener('blur', function (event) {
         // Cada vez que el usuario escribe algo, verificamos si
         // los campos del formulario son válidos.
-
         if (mail.validity.valid) {
-          mailError.className = 'valid-feedback';
+            mailError.className = 'valid-feedback';
             mail.classList.remove('is-invalid');
             mail.classList.add('is-valid');
             mailError.textContent = 'Es correcto';
-           
         } else {
             // Si todavía hay un error, muestra el error exacto
             errorEmail();
         }
     });
-    
-    
-      nombre.addEventListener('blur', function (event) {
+
+    nombre.addEventListener('blur', function (event) {
         // Cada vez que el usuario escribe algo, verificamos si
         // los campos del formulario son válidos.
-
         if (nombre.validity.valid) {
-          nombreError.className = 'valid-feedback';
+            nombreError.className = 'valid-feedback';
             nombre.classList.remove('is-invalid');
             nombre.classList.add('is-valid');
             nombreError.textContent = 'Es correcto';
-           
         } else {
             // Si todavía hay un error, muestra el error exacto
             errorNombre();
         }
     });
 
-    
     function errorEmail() {
         if (mail.validity.valueMissing) {
             // Si el campo está vacío
@@ -152,17 +122,11 @@ function validacionRegistro()
             // muestra el mensaje de error siguiente.
             mailError.textContent = 'El valor introducido debe ser una dirección de correo electrónico.';
         }
-        
-           mailError.className = 'invalid-feedback';
-            mail.classList.remove('is-valid');
-            mail.classList.add('is-invalid');
-
-        
-      
+        mailError.className = 'invalid-feedback';
+        mail.classList.remove('is-valid');
+        mail.classList.add('is-invalid');
     }
-    
-    
-    
+
     function errorNombre() {
         if (nombre.validity.valueMissing) {
             // Si el campo está vacío
@@ -171,17 +135,56 @@ function validacionRegistro()
         } else if (nombre.validity.patternMismatch) {
             // Si el campo no contiene una dirección de correo electrónico
             // muestra el mensaje de error siguiente.
-           nombreError.textContent = 'El valor introducido debe ser un nombre.';
+            nombreError.textContent = 'El valor introducido debe ser un nombre.';
         }
-      
-           nombreError.className = 'invalid-feedback';
-            nombre.classList.remove('is-valid');
-            nombre.classList.add('is-invalid');
-
-        
-      
+        nombreError.className = 'invalid-feedback';
+        nombre.classList.remove('is-valid');
+        nombre.classList.add('is-invalid');
     }
 }
 
+/**
+ * Validacion para editar perfil
+ */
+function validacionPerfil(){
+    //Constantes necesarias
+    const form = document.getElementById('formularioPerfil');
+    const nombre = document.getElementById('formNombre');
+    const nombreError = document.getElementById('nombreError');
 
+    form.addEventListener('submit', function (event) {
+        // si el campo de nombre es válido, dejamos que el formulario se envíe
+        if (!nombre.validity.valid) {
+            // Si no es así, mostramos un mensaje de error apropiado
+            errorNombre();
+            // Luego evitamos que se envíe el formulario cancelando el evento
+            event.preventDefault();
+        }        
+    });
 
+    nombre.addEventListener('blur', function (event) {
+        // Cada vez que el usuario escribe algo, verificamos si
+        // los campos del formulario son válidos.
+
+        if (nombre.validity.valid) {
+            nombreError.className = 'valid-feedback';
+            nombre.classList.remove('is-invalid');
+            nombre.classList.add('is-valid');
+            nombreError.textContent = 'Es correcto';
+        } else {
+            // Si todavía hay un error, muestra el error exacto
+            errorNombre();
+        }
+    });
+
+    function errorNombre() {
+        if (nombre.validity.valueMissing) {
+            // Si el campo está vacío
+            // muestra el mensaje de error siguiente.
+            nombreError.textContent = 'Debe introducir un nombre.';
+        } 
+           nombreError.className = 'invalid-feedback';
+           nombre.classList.remove('is-valid');
+           nombre.classList.add('is-invalid');
+    }
+}

@@ -44,7 +44,7 @@
 
         <title>Página principal - Mamas 2.0</title>
     </head>
-    <body onload="validacion()">
+    <body onload="validacionInicio()">
         <div class="container-fluid principal p-0 m-0">
             <?php include 'Recursos/header.php'; ?>
             <main class="row col-md-12 align-items-center justify-content-center">

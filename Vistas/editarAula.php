@@ -79,7 +79,8 @@
                                         <!-- Input del nombre del aula -->
                                         <div class="col-md-3"></div>
                                         <div class="col-12 col-md-6 d-flex justify-content-center mb-2">
-                                            <input type="text" name="nombre" value="<?php echo $aula->getNombre(); ?>" class="form-control">
+                                            <input type="text" name="nombre" value="<?php echo $aula->getNombre(); ?>" class="form-control" id="formNombre" required>
+                                            <div id="nombreError"></div>
                                         </div>
                                         <div class="col-md-3"></div>
                                     </div>
